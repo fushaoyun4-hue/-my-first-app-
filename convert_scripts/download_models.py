@@ -50,17 +50,18 @@ download_file(yolo_url, yolo_dest, "YOLOv8n ONNX (水印检测主模型)")
 # yolo_hf = f"{HUGGINGFACE_MIRROR}/onnx-community/yolov8n/object-detection/resolve/main/yolov8n.onnx"
 
 # ----- 2. LaMa 修复模型 -----
-# 开源 LaMa 实现 (marahov/lama)
-# 注意：原版 LaMa 需要较大显存，此处用精简版
+# 已验证可用的 LaMa ONNX 模型源
+# Carve/LaMa-ONNX: 来自 Carve 团队转换的 big-lama ONNX (opset 17, 512x512, fp32)
+# 参考: https://huggingface.co/Carve/LaMa-ONNX
 lama_urls = [
-    # BigWigs 社区分享的 LaMa ONNX
-    "https://huggingface.co/nicehero/LaMa/resolve/main/lama_fp32.onnx",
-    # 备用：小体积修复网络
-    "https://huggingface.co/nicehero/LaMa/resolve/main/lite_inpaint.onnx",
+    # 主选: Carve 团队转换的 big-lama ONNX (推荐, opset 17, 512x512)
+    ("https://huggingface.co/Carve/LaMa-ONNX/resolve/main/lama_fp32.onnx", "lama_inpaint.onnx"),
+    # 备选: 同一仓库的 lama.onnx (opset 18, 较慢, 不推荐)
+    ("https://huggingface.co/Carve/LaMa-ONNX/resolve/main/lama.onnx", "lama_inpaint.onnx"),
 ]
 lama_dest = os.path.join(OUT_DIR, "lama_inpaint.onnx")
-for url in lama_urls:
-    ok = download_file(url, lama_dest, "LaMa ONNX (图像修复)")
+for url, dest_name in lama_urls:
+    ok = download_file(url, lama_dest, f"LaMa ONNX (图像修复) [{os.path.basename(dest_name)}]")
     if ok:
         break
 

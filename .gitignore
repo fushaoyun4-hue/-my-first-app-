@@ -1,0 +1,37 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.jar
+
+# Local config (secrets)
+local.properties
+
+# Model files (large, use git-lfs)
+*.onnx
+*.pt
+*.pth
+*.h5
+
+# FFmpeg binaries (large)
+ffmpeg
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Build outputs
+app/build/
+app/*.apk
+app/*.aab
+
+# GitHub Actions secrets
+*.keystore
