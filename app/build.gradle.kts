@@ -85,6 +85,10 @@ dependencies {
     // 下载对应 CPU/ GPU (NNAPI) 版本的 aar
     implementation("com.microsoft.onnxruntime:onnxruntime-android:1.16.3")
 
+    // ── FFmpeg 视频处理 ──
+    // 视频抽帧 + 合成（全功能版，包含 libx264/aac）
+    implementation("com.arthenica:ffmpeg-kit-full-gpl:6.0-2")
+
     // ── Coroutines ──
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 

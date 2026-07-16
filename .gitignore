@@ -1,0 +1,67 @@
+# Built application files
+*.apk
+*.ap_
+*.aab
+
+# Generated files
+bin/
+gen/
+out/
+build/
+
+# Gradle
+.gradle/
+gradle-app.setting
+
+# Local config (secrets)
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+local.properties
+
+# Keystore
+*.keystore
+*.jks
+
+# Large model files / dataset
+*.onnx
+*.tflite
+*.h5
+*.pt
+*.pth
+*.pkl
+*.pytorch
+*.bin
+*.pth
+models/
+dataset/
+node_modules/
+
+# Downloaded tools
+tools/
+tools/
+
+# FFmpeg binaries (if bundled)
+ffmpeg/
+ffmpeg.exe
+ffmpeg/
+
+# Temp
+*.log
+*.tmp
+*.bak
+.cache/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Video processing cache (large, per-session)
+video_task_*/
+preview_*/
+processed_frames/
+frames/
