@@ -48,9 +48,7 @@ jobs:
             --local-dir-use-symlinks False \
             --resume-download
           mv app/src/main/assets/models/lama_fp32.onnx app/src/main/assets/models/lama-inpaint.onnx
-          # YOLOv8n ONNX (水印检测, ~6MB)
-          curl -L -o app/src/main/assets/models/yolov8n.onnx \
-            https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n.onnx
+          # 注意：水印检测使用传统 CV 方法（Sobel 边缘检测），无需 YOLOv8 模型
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon -Pandroid.disableResourceValidation=true
