@@ -47,9 +47,9 @@ class LaMaEngine @Inject constructor(
 
     /**
      * 初始化模型（幂等调用）
-     * @param modelPath assets/models/lama-fourier.onnx
+     * @param modelPath assets/models/migan_pipeline_v2.onnx 
      */
-    suspend fun init(modelPath: String = "models/lama-fourier.onnx") = mutex.withLock {
+    suspend fun init(modelPath: String = "models/migan_pipeline_v2.onnx") = mutex.withLock {
         if (session != null) return@withLock  // 已初始化
 
         withContext(Dispatchers.IO) {
